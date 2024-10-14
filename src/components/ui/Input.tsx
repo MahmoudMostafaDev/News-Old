@@ -6,7 +6,7 @@ interface Props {
     type?: string;
 }
 const Input: React.FC<Props> = ({ label, onChangeOutter, value, type }) => {
-    const [valueInput, setValueInput] = React.useState(value);
+    const [valueInput, setValueInput] = React.useState(value || '');
     function onChange(e: any) {
         setValueInput(e.target.value);
         onChangeOutter(e);

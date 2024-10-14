@@ -1,4 +1,5 @@
 import Button from "./components/ui/Button"
+import Card from "./components/ui/Card/Card"
 import CategoryItem from "./components/ui/CategoryItem"
 import Input from "./components/ui/Input"
 import LargeBtn from "./components/ui/LargeBtn"
@@ -17,6 +18,7 @@ function App() {
       <CategoryItem text="Test" onClick={() => console.log("test")} isSelected />
 
       <Input label="Test" onChangeOutter={(e) => console.log("test")} value="test" />
+      <Card headline="test" desc="test" img={""} onView={() => console.log("test")} onSave={() => console.log("test")} />
     </>
   )
 }
