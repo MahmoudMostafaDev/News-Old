@@ -4,7 +4,7 @@ import CategoryItem from '../CategoryItem';
 
 const InterestsContiainer = () => {
     return (
-        <div className='grid grid-cols-2 gap-x-2 gap-y-4 justify-between max-[450px]:grid-cols-1 align-center'>
+        <div className='grid lg:grid-cols-3 grid-cols-2 gap-x-2 gap-y-4 justify-between max-[450px]:grid-cols-1 align-center'>
             <CategoryItem text="General" onClick={(selected) => console.log(selected)} />
             <CategoryItem text="World" onClick={(selected) => console.log(selected)} />
             <CategoryItem text="Nation" onClick={(selected) => console.log(selected)} />
