@@ -8,7 +8,7 @@ const CardInfo: React.FC<Props> = ({ headline, desc }) => {
     return text.substring(0, 60) + `${text.length > 60 ? '...' : ''}`;
   }
   function formatDesc(text: string) {
-    return text.substring(0, 180) + `${text.length > 180 ? '...' : ''}`;
+    return text.substring(0, 140) + `${text.length > 140 ? '...' : ''}`;
   }
   return (
     <>
