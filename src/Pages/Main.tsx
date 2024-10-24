@@ -4,13 +4,12 @@ import CardContainer from '../components/ui/Card/CardContainer';
 import CardInfinteContainer from '../components/ui/Card/CardInfinteContainer';
 import { CardType } from '../components/ui/Card/CardContainer';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
+
 
 const Main = () => {
     //error template
     const preferences = useSelector((state: any) => state.preferences);
-    console.log(preferences)
-    const { data, isLoading, isError, error, refetch } = useQuery({
+    const { data, isLoading, isError } = useQuery({
         queryKey: ["head"],
         queryFn: async ({ signal }: { signal: any }) => await getHeadNews({ signal, categories: preferences.preferences })
     })

@@ -20,7 +20,7 @@ const Profile = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     //update when change
-    const { mutate, data } = useMutation({
+    const { mutate } = useMutation({
         mutationKey: ["pref"],
         mutationFn: async () => await setUserPreferencers(token as string, interests),
         onSuccess: (data) => {

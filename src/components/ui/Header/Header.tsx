@@ -1,12 +1,10 @@
 import user from "../../../assets/user.png"
-import { useDispatch, useSelector } from 'react-redux';
-import { logout, AppDispatch } from '../../../../store/store';
+import { useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import Logo from "../../../assets/Logo.png"
 import Button from '../Button';
 
 const Header = () => {
-    const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
     const auth: { isAuth: boolean } = useSelector((state: any) => state.auth);
     return (

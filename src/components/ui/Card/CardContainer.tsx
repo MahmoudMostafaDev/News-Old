@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from './Card';
-import { useNavigate } from 'react-router-dom';
 export type CardType = {
     _id: string,
     title: string,

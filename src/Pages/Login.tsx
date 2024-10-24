@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../util/http';
 import { loginAction } from '../../store/store';
-import { useDispatch, UseDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store/store';
 import Input from '../components/ui/Input';
 import LargeBtn from '../components/ui/LargeBtn';

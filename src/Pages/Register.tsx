@@ -6,7 +6,7 @@ import { FormEvent, useState } from 'react';
 import { RegisterObj, register } from '../util/http';
 import { useNavigate } from 'react-router-dom';
 import { loginAction } from '../../store/store';
-import { useDispatch, UseDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store/store';
 import { preferancesActions } from '../../store/preferencesSlice';
 export type callBackFunc = (updateFunction: (value: string[]) => string[]) => void;
