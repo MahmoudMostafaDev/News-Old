@@ -7,7 +7,6 @@ import { preferancesActions } from '../../store/preferencesSlice';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import Button from '../components/ui/Button';
 import { AppDispatch, logout } from '../../store/store';
-import ErrorPage from './ErrorPage';
 
 
 
@@ -66,7 +65,6 @@ const Profile = () => {
             <h4 className='text-xl text-primary font-bold mb-4 mt-10 text-center md:text-start  '>Your Saved</h4>
             {query.data?.code === 200 && <CardContainer Cards={query.data?.data} />}
             {query.data?.code === 404 && <p className='text-gray-500 font-bold'>No Saved News Found</p>}
-            <ErrorPage isNotFound></ErrorPage>
         </div>
     );
 }
