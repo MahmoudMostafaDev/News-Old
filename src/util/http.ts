@@ -50,7 +50,6 @@ export async function register(data: RegisterObj) {
 }
 
 export async function getHeadNews({
-  signal,
   categories,
 }: {
   signal: any;
