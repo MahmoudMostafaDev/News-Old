@@ -11,7 +11,7 @@ import { logout } from "../store/store.ts"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { preferancesActions } from "../store/preferencesSlice.ts"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useEffect} from "react"
 import { AppDispatch } from '../store/store';
 import { getUserPreferencers } from "./util/http.ts"
 import ErrorPage from "./Pages/ErrorPage.tsx"
