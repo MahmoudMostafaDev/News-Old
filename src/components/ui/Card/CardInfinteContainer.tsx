@@ -9,7 +9,7 @@ const CardInfinteContainer = () => {
     const [categories, setCategories] = useState([...preferences.preferences]);
     const [cards, setCards] = useState<any[]>([]);
 
-    const { data, fetchNextPage, refetch } = useInfiniteQuery({
+    const { data, fetchNextPage } = useInfiniteQuery({
         queryKey: ["news", categories],
         queryFn: async ({ pageParam }) => {
             const res = await getNews({ pageParam: pageParam as number, categories })
