@@ -10,7 +10,7 @@ const Main = () => {
     //error template
     const preferences = useSelector((state: any) => state.preferences);
     const { data, isLoading, isError } = useQuery({
-        queryKey: ["head"],
+        queryKey: ["head", ...preferences.preferences],
         queryFn: async ({ signal }: { signal: any }) => await getHeadNews({ signal, categories: preferences.preferences })
     })
 

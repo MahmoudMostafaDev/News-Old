@@ -6,12 +6,16 @@ import { useSelector } from 'react-redux';
 
 const CardInfinteContainer = () => {
     const preferences = useSelector((state: any) => state.preferences);
-    const categories: string[] = preferences.preferences;
+    const [categories, setCategories] = useState([...preferences.preferences]);
     const [cards, setCards] = useState<any[]>([]);
+
     const { data, fetchNextPage, refetch } = useInfiniteQuery({
-        queryKey: ["news"],
+        queryKey: ["news", categories],
         queryFn: async ({ pageParam }) => {
-            return await getNews({ pageParam: pageParam as number, categories })
+            const res = await getNews({ pageParam: pageParam as number, categories })
+            console.log([...preferences.preferences])
+            console.log(res)
+            return res
         },
         getNextPageParam: (lastPage) => {
             if (lastPage.data.news.length === 0) return undefined
@@ -19,13 +23,17 @@ const CardInfinteContainer = () => {
         },
         initialPageParam: 1,
     });
+
+
     useEffect(() => {
-        refetch();
-    }, [preferences])
+        setCategories([...preferences.preferences]);
+    }, [preferences.preferences.length])
+
     useEffect(() => {
         const newCards = data?.pages[data.pages.length - 1].data.news || [];
         setCards((cards) => [...cards, ...newCards] as any[]);
     }, [data])
+
     useEffect(() => {
         window.addEventListener("scrollend", () => {
             fetchNextPage();
@@ -33,7 +41,7 @@ const CardInfinteContainer = () => {
         return () => {
             window.removeEventListener("scrollend", () => { });
         }
-    }, [])
+    }, [fetchNextPage])
     return (
         <div>
             <div className='flex justify-between mb-5 px-10'><h2 className='text-3xl font-bold mb-5 mt-10  '>For You</h2></div>

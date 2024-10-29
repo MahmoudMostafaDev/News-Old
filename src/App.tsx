@@ -44,9 +44,7 @@ const router = createBrowserRouter([{
 
 }])
 function App() {
-  const [isAuth, setIsAuth] = useState(true);
   const dispatch = useDispatch<AppDispatch>();
-  const [didLoad, setDidLoad] = useState(false);
   const queryClient = new QueryClient();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -54,7 +52,6 @@ function App() {
     const timeUntilExpDate = exp.getTime() - new Date().getTime()
     if (token === "" || timeUntilExpDate <= 0) {
       dispatch(logout());
-      setIsAuth(false);
     } else {
       setTimeout(() => {
         dispatch(logout());
@@ -63,7 +60,6 @@ function App() {
         const preferences = await getUserPreferencers(Token);
         dispatch(preferancesActions.updatePreferences(preferences.preferences.preferences));
         dispatch(authActions.login())
-        setDidLoad(true);
       }
       fetechPreferencers(token as string);
     }
@@ -73,7 +69,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {(didLoad || !isAuth) && <RouterProvider router={router} />}
+      {<RouterProvider router={router} />}
     </QueryClientProvider>
   )
 }

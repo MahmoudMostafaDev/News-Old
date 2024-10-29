@@ -44,10 +44,11 @@ const Profile = () => {
 
     //load 
     useEffect(() => {
-        if (preferences?.preferences?.preferences != undefined) {
-            setInterests((old) => [...old, ...preferences?.preferences?.preferences]);
+        if (preferences?.preferences != undefined && interests.length === 0) {
+            setInterests((old) => [...old, ...preferences?.preferences]);
+            console.log(preferences?.preferences)
         }
-    }, [preferences])
+    }, [preferences.preferences.length])
 
     const query = useQuery({
         queryKey: ['saved'],
