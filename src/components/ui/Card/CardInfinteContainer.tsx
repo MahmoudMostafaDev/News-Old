@@ -8,9 +8,9 @@ const CardInfinteContainer = () => {
     const preferences = useSelector((state: any) => state.preferences);
     const [categories, setCategories] = useState([...preferences.preferences]);
     const [cards, setCards] = useState<any[]>([]);
-
+    const [changePageIndicator , setIndicator] = useState(0); 
     const { data, fetchNextPage } = useInfiniteQuery({
-        queryKey: ["news", categories],
+        queryKey: ["news", categories , changePageIndicator ],
         queryFn: async ({ pageParam }) => {
             const res = await getNews({ pageParam: pageParam as number, categories })
             console.log([...preferences.preferences])
@@ -23,7 +23,9 @@ const CardInfinteContainer = () => {
         },
         initialPageParam: 1,
     });
-
+    useEffect(()=>{
+        setIndicator(1);
+    },[])
 
     useEffect(() => {
         setCategories([...preferences.preferences]);
