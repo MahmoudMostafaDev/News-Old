@@ -16,7 +16,7 @@ export async function login({ username, password }: loginObj) {
       return "fill all fields";
     }
     const res = await axios.post(
-      "https://news-old-backend-production.up.railway.app/login",
+      "https://news-old-backend-n5bu.vercel.app/login",
       {
         username,
         password,
@@ -34,7 +34,7 @@ export async function login({ username, password }: loginObj) {
 export async function register(data: RegisterObj) {
   try {
     const res = await axios.post(
-      "https://news-old-backend-production.up.railway.app/register",
+      "https://news-old-backend-n5bu.vercel.app/register",
       data
     );
     return { code: 200, data: res.data };
@@ -58,7 +58,7 @@ export async function getHeadNews({
   let categoriesText = categories.join(",");
   try {
     const res = await axios.get(
-      `https://news-old-backend-production.up.railway.app/api/v1/headnews?categories=${categoriesText.toLowerCase()}`
+      `https://news-old-backend-n5bu.vercel.app/api/v1/headnews?categories=${categoriesText.toLowerCase()}`
     );
     return { code: 200, data: [...res.data] };
   } catch (err: any) {
@@ -72,7 +72,7 @@ export async function getHeadNews({
 export async function getUserPreferencers(token: string) {
   try {
     const res = await axios.get(
-      "https://news-old-backend-production.up.railway.app/api/v1/preferences",
+      "https://news-old-backend-n5bu.vercel.app/api/v1/preferences",
       {
         headers: {
           Authorization: `Barrer ${token}`,
@@ -91,7 +91,7 @@ export async function setUserPreferencers(
 ) {
   try {
     const res = await axios.post(
-      "https://news-old-backend-production.up.railway.app/api/v1/preferences",
+      "https://news-old-backend-n5bu.vercel.app/api/v1/preferences",
       {
         preferences,
       },
@@ -117,7 +117,7 @@ export async function getNews({
   try {
     //TODO:Add categories
     const res = await axios.get(
-      `https://news-old-backend-production.up.railway.app/api/v1/news?page=${pageParam}&categories=${categories
+      `https://news-old-backend-n5bu.vercel.app/api/v1/news?page=${pageParam}&categories=${categories
         .join(",")
         .toLowerCase()}`
     );
@@ -130,7 +130,7 @@ export async function getNews({
 export async function saveNews(token: string, New: any) {
   try {
     const res = await axios.post(
-      "https://news-old-backend-production.up.railway.app/api/v1/save",
+      "https://news-old-backend-n5bu.vercel.app/api/v1/save",
       New,
       {
         headers: {
@@ -148,7 +148,7 @@ export async function saveNews(token: string, New: any) {
 export async function getSavedNews(token: string) {
   try {
     const res = await axios.get(
-      "https://news-old-backend-production.up.railway.app/api/v1/save",
+      "https://news-old-backend-n5bu.vercel.app/api/v1/save",
       {
         headers: {
           Authorization: `Barrer ${token}`,
